@@ -1,39 +1,42 @@
+# Resumen: Regresión Logística y Clasificación
 
 ## Regresión Logística
 
 ### ¿Para qué sirve?
-Se utiliza para predecir la probabilidad de que una observación pertenezca a una de dos clases. <br>
+Se utiliza para predecir la **probabilidad** de que una observación pertenezca a una de dos clases (clasificación binaria). A pesar de su nombre, no se usa para predecir valores numéricos abiertos (como el precio de una casa), sino para categorizar.
 
 ### Info útil:
-En general es importante marcar un "threshold" o limite para diferenciar positivos de negativos (fundamentalmente especificar cuando un decimal probabilistico se redondea a positivo y cuando a negativo), tambien conocido como **limite de decisión**. 
+Es fundamental marcar un **threshold** o límite de decisión para diferenciar positivos de negativos. Por ejemplo, si la probabilidad es > 0.5, se clasifica como 1 (positivo); si es menor, como 0 (negativo).
 
-### Como entrenar:
-Primero, la métrica que se usa para calcular la efectividad de una predicción individual es una función de costo llamada **pérdida logistica** y buscamos minimizarla. <br> pérdida logistica mide que tan bien la probabilidad predecida $\hat{p}_i$ matchea con la clase real $y_i$. <br> Luego vamos a usar el Descenso de Gradiente para encontrar el minimo de la función (repasar)
+### Cómo entrenar:
+La métrica para calcular la efectividad es una función de costo llamada **pérdida logística** (Log Loss). Buscamos minimizarla porque mide qué tan bien la probabilidad predecida $\hat{p}_i$ se ajusta a la clase real $y_i$. Para lograr esto, se utiliza el **Descenso de Gradiente**, que ajusta los parámetros del modelo hasta encontrar el mínimo de la función de costo.
 
-
-![Fórmula de pérdida logistica](image.png)
 
 ### Ejemplos de uso:
-- Estimar la probabilidad de que un paciente tenga una enfermedad en base a peso, altura, presión arterial.
-- Predecir si un usuario va a comprar un producto en base a su edad y salario neto.
+- Estimar si un paciente tiene una enfermedad (Sí/No) en base a peso, altura y presión arterial.
+- Predecir si un usuario va a comprar un producto (Compra/No compra) según su edad y salario.
 
-### Diferencia con arbol de clasificacion
-A diferencia del arbol de clasificacion este es utilizado para predecir valores continuos de una variable objetvio. <br>
-Por ejemplo un arbol de clasificacion se utilizaria para analisis medicos, pertenencia a conjuntos, etc. Mientras que el arbol de regresion se utiliza para predecir temperaturas, indices demograficos, etc.
+### Diferencia con Árboles
+- **Regresión Logística:** Es un modelo paramétrico que usa la función sigmoide para devolver una probabilidad continua entre 0 y 1 antes de clasificar.
+- **Árbol de Clasificación:** Es un modelo no paramétrico que divide los datos en ramas según reglas lógicas (ej: "Si edad > 30..."). 
+- **Nota importante:** No confundir con el **Árbol de Regresión**, que es el que se usa para predecir valores continuos (temperaturas, índices demográficos, etc.).
+
+---
 
 # Clasificación
-**Es la idea de utilizar modelos ya entrenados para clasificar nuevos datos**
+**Es el proceso de utilizar modelos ya entrenados para asignar etiquetas o categorías a nuevos datos.**
 
 ## Algoritmos de clasificación
+Entre los más conocidos están:
+* Regresión Logística
+* Árboles de Decisión
+* Redes Neuronales
+* K-nearest neighbors (KNN)
 
-Dentro de los algoritmos mas notorios tenemos Regresión Logística, Arboles de decisión, Redes Neuronales, K-nearest neighbors (KNN).
+## Clasificación de múltiples clases
+Cuando un algoritmo es binario por naturaleza (como la Logística), usamos estrategias para clasificar en más de dos categorías:
 
-## Clasificación de multiples clases
+1. **Uno contra todos (One-vs-Rest):** Se entrena un clasificador binario por cada etiqueta. El dato pasa por todos y gana la etiqueta que devuelva la probabilidad más alta.
+   - *Ejemplo:* ¿Es azul? (Prob: 0.1) -> ¿Es verde? (Prob: 0.7) -> ¿Es rojo? (Prob: 0.2). Resultado: Verde.
 
-No todos los algoritmos sirven para clasificar entre clases multiples (mas allá de clasif. binaria), pero podemos utilizar a aquellos con capacidades binarias para componer algoritmos de clasificación múltiple, para esto tenemos:
-
--   Uno contra todos: Para cada etiqueta tenemos un clasif. binario y pasamos el datapoint por cada uno.
-    - Es azul? (Si no)-> Es verde? (Si no)-> Es rojo? (Si no)-> Es outsider
-- Uno contra uno: Tomamos todos los posibles pares de clases y comparamos a cual es mas cercano, luego gana el de mayor acercamiento. (REPASAR)
-![Ejemplo](image-1.png)
-
+2. **Uno contra uno (One-vs-One):** Se entrenan clasificadores para cada par posible de clases (ej: Azul vs Rojo, Rojo vs Verde, Verde vs Azul). Cada uno "vota" por una clase y gana la que tenga más votos acumulados.

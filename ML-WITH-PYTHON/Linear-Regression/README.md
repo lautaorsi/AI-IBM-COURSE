@@ -1,7 +1,5 @@
 ## Regresión Lineal y No Lineal
 
-**Importante: La regresión es un tipo de modelo de aprendizaje supervisado**
-
 ### ¿Para qué sirve?
 Utilizado para predecir valores construyendo una relación lineal (o no lineal) entre una variable objetivo continua y:
 
