@@ -6,14 +6,12 @@ Es un algoritmo de clustering iterativo que se basa en la división de de datapo
 -   La información es separable
 -   Difícil de visualizar (espacios de dimensiones grandes)
 
-
-
-## Sobre los valores de K
-Cuando agrupamos en K clusters es importante tener en cuenta la siguiente relación respecto a la cantidad que elegimos:
+## Parametros
+El parametro mas importante es K, que define cuando agrupamos en K clusters. Es importante tener en cuenta la siguiente relación respecto a la cantidad que elegimos:
 -   K Alto: Clusters mas pequeños con mayor detalle
 -   K Bajo: Clusters mas grandes con menor detalle
 
-Es importante notar que en realidad lo que hacemos es tomar k núcleos para cada agrupamiento y luego simplemente agrupamos cada datapoint al núcleo mas próximo.
+Notemos que en realidad lo que hacemos es tomar k núcleos para cada agrupamiento y luego simplemente agrupamos cada datapoint al núcleo mas próximo.
 
 ## Pseudo-algoritmo
 
