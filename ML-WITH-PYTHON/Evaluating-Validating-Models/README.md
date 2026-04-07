@@ -2,7 +2,7 @@
 
 
 ## Evaluación de Aprendizaje Supervisado
-El proceso de evaluacion involucra establecer la **precisión de predicción de resultados** y es fundamental para optimizar predicciones y entender su efectividad. 
+El proceso de evaluacion de un modelo involucra establecer su **precisión de predicción de resultados** y es fundamental para optimizar predicciones y entender la efectividad del mismo. 
 
 
 
