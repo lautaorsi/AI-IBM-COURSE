@@ -58,5 +58,5 @@ Similar a [MSE](#mse), mantiene las penalizaciones fuertes pero convierte el res
 $$\text{MAE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)²}$$
 
 -   ### R²
-Calcula el porcentaje de la variabilidad de la variable objetivo es explicado por los features.
+Calcula el porcentaje de la variabilidad de la variable objetivo que es explicada por los features.
 $$R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y}_i)^2}$$
