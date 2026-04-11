@@ -17,3 +17,5 @@ Usa un algoritmo para establecer relaciones de dependencia entre una variable ob
 -   [Regresión Lineal Múltiple](./Linear-Regression/)
 -   [Regresión Logística](./Logistical-Regression/)
 -   [KNN](./KNN/)
+
+En general para modelos de regresión el skewdness (o asimetria en los datos) puede ser problematico, particularmente para regresiones lineales, eso puede ser solucionado en cierto grado utilizando logarización de los datos, entre otros.
