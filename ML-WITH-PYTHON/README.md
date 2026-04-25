@@ -1,4 +1,6 @@
-# Anotaciones Generales
+# Overview
+
+En este curso voy a trabajar sobre distintos algoritmos de Machine Learning via Python, profundizando un poco sobre la optimización, métricas de resultados y distintos tipos de aprendizaje.
 
 ## [Aprendizaje Supervisado](./Supervised-Learning/)
 
