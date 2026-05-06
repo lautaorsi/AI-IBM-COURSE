@@ -5,16 +5,15 @@
 
 ## Redes Neuronales Convolucionales (CNN)
 
-Son redes neuronles cuya funcionalidad se basa específicamente en el procesamiento de imagenes. 
+Son redes neuronles cuya funcionalidad se basa específicamente en el procesamiento de imagenes, esto permite otro tipo de inputs distintos a los de las redes  neuronales simples, en las que tenemos entradas vectorizadas de tamaño $(N \times 1)$. 
 
 
 ### Capa de Entrada
-
-Normalmente en las redes neuronales tenemos entradas vectorizadas de tamaño $(N \times 1)$, sin embargo en el contexto de las CNN vamos a procesar imagenes y por lo tanto tenemos entradas de tamaño $(N \times M \times 1)$ si la imagen es en escala de grises y $(N \times M \times 3)$ si es _rgb_ .
+En el contexto de las CNN vamos a procesar imagenes y por lo tanto tenemos entradas de tamaño $(N \times M \times 1)$ si la imagen es en escala de grises y $(N \times M \times 3)$ si es _rgb_ .
 
 ### Capa Convolucional
 
-Es la capa en la cual definimos filtros sobre la imagen
+Es la capa en la cual definimos filtros sobre la imagen. Además esta capa contiene funciones ReLU para filtrar el resultado, anulando valores negativos.
 
 
 ### Capa de Agrupación 
@@ -32,7 +31,7 @@ En esta capa reducimos las dimensiones de la información pasada por la red, ten
 
 ### Capa Totalmente Conectada
 
-Esta capa se encarga de conectar todos los nodos de la última capa con todos los de la capa de salida, recibiendo el output de la capa anterior y enviando un vector de dimensión $N$, donde N es la cantidad de clases pertinentes al problema
+Esta capa "aplasta" la salida de la última capa convolucional y se conecta con todos los nodos de la capa siguiente.
 
 
 ## Redes Neuronales Recurrentes (RNN)
@@ -42,4 +41,23 @@ Este tipo de red neuronal se centra en el problema de tratar datapoints como ins
 
 
 ## Transformadores
+
+Los transformadores se especializan en relacionar distitnas partes de una secuencia de entrada y mecanismos de atención. El mecanismo de atención esta compuesto por tres partes:
+
+1.  Generación de Vectores Query, Key y Value
+    -   ***Query*** Embedding vectorial de la informacion que busca el token
+    -   ***Key***   Representación de la información que contiene cada token
+    -   ***Value*** Información contextual del token
+    
+
+2.  Puntaje de Atención (Attention scores)
+    Calcula la atencion que un token le presta a otro.  Este puntaje se obtiene de la siguiente manera:
+    1. El producto del vector Query de cada token con todos los vectores key de los otros tokens
+    2. Se escala el vector resultante diviendolo por la raíz de la dimension de los vectores
+    3.  Aplicamos la función softmax a cada valor del vector para obtener una sumatoria de 1 (algo así como obtener el _porcentaje de atención_)
+
+3.  Suma ponderada
+    El último paso es obtener la informacion contextual del token, esto se logra multiplicando el vector de porcentaje de atención por la información contextual de todos los otros tokens. 
+    
+> Todas estas operaciones se pueden aplicar de forma paralela, resultando en tiempos de entrenamiento mucho mas rápidos que otros modelos.
 
