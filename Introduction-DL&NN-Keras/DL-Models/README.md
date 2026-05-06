@@ -51,12 +51,14 @@ Los transformadores se especializan en relacionar distitnas partes de una secuen
     
 
 2.  Puntaje de Atención (Attention scores)
+
     Calcula la atencion que un token le presta a otro.  Este puntaje se obtiene de la siguiente manera:
     1. El producto del vector Query de cada token con todos los vectores key de los otros tokens
     2. Se escala el vector resultante diviendolo por la raíz de la dimension de los vectores
     3.  Aplicamos la función softmax a cada valor del vector para obtener una sumatoria de 1 (algo así como obtener el _porcentaje de atención_)
 
 3.  Suma ponderada
+
     El último paso es obtener la informacion contextual del token, esto se logra multiplicando el vector de porcentaje de atención por la información contextual de todos los otros tokens. 
     
 > Todas estas operaciones se pueden aplicar de forma paralela, resultando en tiempos de entrenamiento mucho mas rápidos que otros modelos.
