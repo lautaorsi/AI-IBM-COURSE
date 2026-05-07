@@ -1,6 +1,8 @@
 # Course overview
 
-This is an AI specialization by IBM called [IBM AI Engineering Professional Certificate](#https://www.coursera.org/professional-certificates/ai-engineer), it consists of 12 courses and I'll be posting each course as I complete them with some of my notes and codes
+Esta es una especialización de IBM llmada [IBM AI Engineering Professional Certificate](#https://www.coursera.org/professional-certificates/ai-engineer), consiste de 12 cursos con sus respectivos submódulos, voy a estar subiendo código y algunos apuntes a medida que avance con el mismo.
 
 -   [Course 1](./ML-WITH-PYTHON/): Machine Learning with Python
 -   [Course 2](./Introduction-DL&NN-Keras): Introduction to Deep Learning & Neural Networks with Keras
+
+-   [Course 3](./DL-Keras_Tensorflow): Deep Learning with Keras and Tensorflow
